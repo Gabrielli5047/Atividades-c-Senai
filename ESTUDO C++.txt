@@ -1,0 +1,97 @@
+ESTRUTURA BASICA :
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	cout<<"hello world"<< endl;
+	return 0;
+}
+
+
+cout -> imprime na tela do usuario
+endl -> pular uma linha 
+TERMINA AS INSTRUÇÕES COM ;
+
+return 0 -> para encerrar o programa ; 
+
+CTRL + F -> IDENTA O CODIGO
+F9 -> EXECUTA O CODIGO
+
+VARIAVEIS:
+
+1. tem que declarar a variavel antes de uasr:
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{	int idade = 20;
+	cout<< idade;
+	return 0;
+}
+
+int -> inteira
+float -> decimal
+double -> decimais maior
+char -> strings
+
+int idade, idade2, idade3 ;   
+int nota = 20;
+
+para imprimir a nota na tela :
+
+cout << idade;
+
+
+OPERADORES:
+
+= - * / % 
+
+EXEMPLO:
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int n1, n2, resultado;
+	
+	n1 = 10;
+	n2 = 20;
+	
+	resultado = n1 + n2;
+	
+	cout << resultado;
+	
+	return 0;
+}
+
+n--  n++  -> n = n - 1   n = n + 1
+n -= 3  ->  n = n - 3
+
+VARIAVEL CHAR:
+
+entre aspas simples ' '
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

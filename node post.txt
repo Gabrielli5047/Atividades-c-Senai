@@ -1,0 +1,48 @@
+TOPICO 05:
+
+CREATE DATABASE biblioteca
+
+drop table if exists autores;
+
+create table autores (
+  	id serial primary key,
+  nome text not null,
+  idade smallint
+  );
+
+drop table if exists livros
+
+creat table livros (
+	id serial primary key,
+  	autor_id integer not null,
+    nome text not null,
+  	editora varchar(50) not null,
+  	data_publicado date,
+  	foreign key (autor_id) references autores(id)
+)
+
+TOPICO 06:
+
+CONECTAR --> no vscode:
+
+npm innit -y
+npm install express
+npm install nodemon 
+npm install pg
+
+cria arquivo index.js :
+
+const express = require('express')
+const app = express();
+ 
+app.use(express.json())
+
+app.get('/', (req, res)=>{
+    res.json('tudo certo')
+})
+
+app.listen(3000)
+
+
+
+

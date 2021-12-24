@@ -1,0 +1,6 @@
+PARA PEGAR AS COISAS QUE BRUNO JA FEZ:
+git fetch(sincroniza)
+git pull origin dev (pegar as alterações dele origin dev).
+ ... pegar depois que ele fizer o merge (junta tudo - faz no github)
+
+PARA SUBIR MINHAS BRANTCH:

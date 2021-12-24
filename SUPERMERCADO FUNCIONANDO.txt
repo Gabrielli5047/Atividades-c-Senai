@@ -1,0 +1,127 @@
+//registros
+#include <iostream>
+#include <stdlib.h>
+
+	using namespace std;
+	
+	int topo;
+	
+	struct mercadoria{
+		int id;
+		string nome;
+		string categoria;
+		double valor;
+		int quantidade;
+	};
+	
+	mercadoria superMercado[20];
+	
+	void menuPrincipal(){
+		cout<<"	Menu Principal        "<<endl;
+		cout<<"	1 - Cadastrar produto "<<endl;
+		cout<<"	2 - Adicionar produtos"<<endl;
+		cout<<"	3 - Exibir produtos   "<<endl;
+		cout<<"	4 - Comprar produtos  "<<endl;
+		cout<<"	5 - Relatorios        "<<endl;
+		cout<<"	6 - sair"<<endl;
+	}
+	
+	bool validaIdProduto(int idProduto){
+	bool valida = false;
+	for(int i = 0; i < topo; i++){
+		if(superMercado[i].id == idProduto ){
+			valida = true;			
+			break;
+		}
+	}
+	return valida;
+}
+	bool produtoExiste(string nomeProd){
+	bool valida = false;
+	for(int i = 0; i < topo; i++){
+		if(superMercado[i].nome == nomeProd ){
+			valida = true;			
+			break;
+		}
+	}
+	return valida;
+}
+	
+	void cadastrarProduto(){
+		cout<<"	CADASTRAR PRODUTO: "<<endl;
+		int idProduto = 0, quantidade;
+		string nome;
+			
+		for(int i = 0; i < 10; i++){
+			if(superMercado[i].id == 0){
+				cout<<"Informe o id do produto"<<endl;
+				cin>>idProduto;
+				
+			if(validaIdProduto(idProduto)){
+				cout<<"Por favor, volte ao menu -> cadastrar de produtos e informe um ID diferente!"<<endl;
+				break;
+				
+			}else{
+				cout<<"	Informe o nome do produto "<<endl;
+				cin>>nome;
+				
+				if(produtoExiste(nome)){
+					cout<<" Este produto já existe em estoque, favor ir em menu -> adicionar produto"<<endl;
+					break;
+				}
+				superMercado[i].id = idProduto;	
+				superMercado[i].nome = nome;	
+				cout<<"	Informe a categoria do produto "<<endl;
+				cin>>superMercado[i].categoria;
+				cout<<"	Informe o valor do produto "<<endl;
+				cin>>superMercado[i].valor;
+				cout<<"	Informe a quantidade do produto "<<endl;
+				cin>>superMercado[i].quantidade;
+				topo++;
+				break;
+				
+			}	
+		}
+	}
+}
+
+	void exibirProdutos(){
+		cout<<"	PRODUTOS CADASTRADOS "<<endl;
+		for(int i = 0; i < topo; i++){
+			cout<<" ID: "<<superMercado[i].id;
+			cout<<" Nome: "<<superMercado[i].nome;
+			cout<<" Categoria: "<<superMercado[i].categoria;
+			cout<<" Valor: R$ "<<superMercado[i].valor<<" reais"<<endl;
+			cout<<" Quantidade: "<<superMercado[i].quantidade<<" kg de "<<superMercado[i].nome<<" em estoque"<<endl;
+	}
+}
+	
+	void adicionarProduto();
+	
+int main(){
+	
+	setlocale(LC_ALL,"Portuguese");
+	int op;
+	string resp;
+	
+	do{
+		system("cls");	
+		menuPrincipal();
+		cout<<"	Informe a opção desejada "<<endl;
+		cin>>op;
+		switch(op){
+			case 1:
+				//cadastro
+				cadastrarProduto();
+				break;
+			case 2:
+				//exibir
+				exibirProdutos();
+				break;				
+		}
+	
+		cout<<"	Deseja voltar ao menu principal? [S = sim]"<<endl;
+		cin>>resp;
+		
+	}while(resp == "S" || resp == "s");
+}
